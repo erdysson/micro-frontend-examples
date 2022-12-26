@@ -65,7 +65,7 @@ This is the default setting in this example applications.
 
   ![](./docs/screenshots/non_eager_profile_network.png)
 
-- Assets transferred over network for profile application after refresh in home
+- Assets transferred over network for profile application after refresh in profile
 
   ![](./docs/screenshots/non_eager_profile_network_after_refresh.png)
 
@@ -76,6 +76,7 @@ This is the default setting in this example applications.
 ##### Pros:
 
 - Smaller bundle size
+- Better page load performance
 
 ##### Cons:
 
@@ -154,6 +155,7 @@ This is the default setting in this example applications.
 ### Cons:
 
 - bundles are filled with duplicates in main.js and polyfills.js
+- worse initial load metrics
 - currently there's already an open bug and resolved yet in this manner: https://github.com/module-federation/module-federation-examples/issues/693
 
 Here are the cons for this configuration
