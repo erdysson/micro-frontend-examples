@@ -1,0 +1,20 @@
+{
+    "/micro-frontend/home/*": {
+        "target": "http://localhost:4211",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "error",
+        "pathRewrite": {
+            "^/micro-frontend/home": ""
+        }
+    },
+    "/micro-frontend/profile/*": {
+        "target": "http://localhost:4212",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "error",
+        "pathRewrite": {
+            "^/micro-frontend/profile": ""
+        }
+    }
+}

@@ -75,7 +75,8 @@
                     "builder": "@angular-builders/custom-webpack:dev-server",
                     "options": {
                         "browserTarget": "app:build",
-                        "port": 4210
+                        "port": 4210,
+                        "proxyConfig": "proxy.conf.json"
                     },
                     "configurations": {
                         "production": {

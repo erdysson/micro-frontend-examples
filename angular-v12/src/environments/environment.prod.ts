@@ -5,13 +5,13 @@ export const environment: Environment = {
     remoteEntries: [
         {
             routePath: 'home',
-            remoteEntry: 'http://localhost:4211/remoteEntry.js',
+            remoteEntry: '/micro-frontend/home/remoteEntry.js',
             remoteName: 'home',
             exposedModule: 'HomeModule',
         },
         {
             routePath: 'profile',
-            remoteEntry: 'http://localhost:4212/remoteEntry.js',
+            remoteEntry: '/micro-frontend/profile/remoteEntry.js',
             remoteName: 'profile',
             exposedModule: 'ProfileModule',
         },
