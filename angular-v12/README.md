@@ -131,6 +131,7 @@ const getSharedPackages = (eager = false) =>
         '@angular/common': { eager, singleton: true, strictVersion: false, requiredVersion: 'auto' },
         '@angular/router': { eager, singleton: true, strictVersion: false, requiredVersion: 'auto' },
         '@angular/forms': { eager, singleton: true, strictVersion: false, requiredVersion: 'auto' },
+        'moment': { eager, singleton: true, strictVersion: false, requiredVersion: 'auto' },
         ...sharedMappings.getDescriptors(),
     });
 
