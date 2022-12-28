@@ -21,57 +21,9 @@ Dramatically, existence of those two packages already increased the bundle sizes
 
 #### 1 - configuration eager:false in host and remote applications
 
-#### HOST
-
 This is the default setting in this example applications.
 
-- Bundle analyze for host application
-
-  ![](./docs/screenshots/non_eager_host_bundle.png)
-
-- Assets transferred over network for host application
-
-  ![](./docs/screenshots/non_eager_host_network.png)
-
-- Lighthouse measurements for page load
-
-  ![](./docs/screenshots/non_eager_host_lighthouse.png)
-
-#### HOME
-
-- Bundle analyze for home application
-
-  ![](./docs/screenshots/non_eager_home_bundle.png)
-
-- Assets transferred over network for home application after navigation from dashboard
-
-  ![](./docs/screenshots/non_eager_home_network.png)
-
-- Assets transferred over network for home application after refresh in home
-
-  ![](./docs/screenshots/non_eager_home_network_after_refresh.png)
-
-- Lighthouse measurements for page load
-
-  ![](./docs/screenshots/non_eager_home_lighthouse.png)
-
-#### PROFILE
-
-- Bundle analyze for home application
-
-  ![](./docs/screenshots/non_eager_profile_bundle.png)
-
-- Assets transferred over network for profile application after navigation from dashboard
-
-  ![](./docs/screenshots/non_eager_profile_network.png)
-
-- Assets transferred over network for profile application after refresh in profile
-
-  ![](./docs/screenshots/non_eager_profile_network_after_refresh.png)
-
-- Lighthouse measurements for page load
-
-  ![](./docs/screenshots/non_eager_profile_lighthouse.png)
+Here is the [link](./docs/benchmarks/NON_EAGER_BENCHMARK.md) for details
 
 ##### Pros:
 
@@ -96,57 +48,7 @@ part of the configuration in three **webpack.config.js** file with:
 shared: getSharedPackages(true)
 ```
 
-#### HOST
-
-This is the default setting in this example applications.
-
-- Bundle analyze for host application
-
-  ![](./docs/screenshots/eager_host_bundle.png)
-
-- Assets transferred over network for host application
-
-  ![](./docs/screenshots/eager_host_network.png)
-
-- Lighthouse measurements for page load
-
-  ![](./docs/screenshots/eager_host_lighthouse.png)
-
-#### HOME
-
-- Bundle analyze for home application
-
-  ![](./docs/screenshots/eager_home_bundle.png)
-
-- Assets transferred over network for home application after navigation from dashboard
-
-  ![](./docs/screenshots/eager_home_network.png)
-
-- Assets transferred over network for home application after refresh in home
-
-  ![](./docs/screenshots/eager_home_network_after_refresh.png)
-
-- Lighthouse measurements for page load
-
-  ![](./docs/screenshots/eager_home_lighthouse.png)
-
-#### PROFILE
-
-- Bundle analyze for profile application
-
-  ![](./docs/screenshots/eager_profile_bundle.png)
-
-- Assets transferred over network for profile application after navigation from dashboard
-
-  ![](./docs/screenshots/eager_profile_network.png)
-
-- Assets transferred over network for profile application after refresh in profile
-
-  ![](./docs/screenshots/eager_profile_network_after_refresh.png)
-
-- Lighthouse measurements for page load
-
-  ![](./docs/screenshots/eager_profile_lighthouse.png)
+Here is the [link](./docs/benchmarks/EAGER_BENCHMARK.md) for details
 
 ### Pros:
 
@@ -158,24 +60,42 @@ This is the default setting in this example applications.
 - worse initial load metrics
 - currently there's already an open bug and resolved yet in this manner: https://github.com/module-federation/module-federation-examples/issues/693
 
-Here are the cons for this configuration
+#### 3 - shared mappings configuration with rxjs included and eager: false in host and remote applications
 
-#### 3 - shared mappings configuration with rxjs included and eager: true in host and remote applications
+To perform this comparison, add the line below to **shared-mappings.js** in all three projects on line 23:
 
-##### Pros:
+```javascript
+rxjs: { eager, singleton: true, strictVersion: false, requiredVersion: 'auto', includeSecondaries: true }
+```
 
-Here are the pros for this configuration
-
-##### Cons:
-
-Here are the cons for this configuration
-
-#### 4 - shared mappings configuration with rxjs included and eager: false in host and remote applications
+Here is the [link](./docs/benchmarks/NON_EAGER_RXJS_SHARED_BENCHMARK.md) for details
 
 ##### Pros:
 
-Here are the pros for this configuration
+- less amount of asset transfer in remote applications
 
 ##### Cons:
 
-Here are the cons for this configuration
+- more requests on host compared to non-shared rxjs version
+- longer load time and slightly more data transfer over network
+- higher amount of data transfer on remote application on page reload
+
+#### 4 - shared mappings configuration with moment (non-tree-shakable) included and eager: false in host and remote applications
+
+To perform this comparison, add the line below to **shared-mappings.js** in all three projects on line 23:
+
+```javascript
+moment: { eager, singleton: true, strictVersion: false, requiredVersion: 'auto', includeSecondaries: true }
+```
+
+Here is the [link](./docs/benchmarks/NON_EAGER_MOMENT_SHARED_BENCHMARK.md) for details
+
+##### Pros:
+
+- way smaller bundle size (not in host, but in remotes)
+- separated moment.js bundle that can take advantage of browser cache
+- better lighthouse performance scores
+
+##### Cons:
+
+- one extra request for separate bundle
