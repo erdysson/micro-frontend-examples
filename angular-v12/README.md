@@ -174,3 +174,6 @@ module.exports = {
     ],
 };
 ```
+### Benchmarks
+
+[Here](./BENCHMARKS.md) is the benchmarks for some different combinations of setup and packages
