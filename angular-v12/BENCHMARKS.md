@@ -23,7 +23,7 @@ Dramatically, existence of those two packages already increased the bundle sizes
 
 This is the default setting in this example applications.
 
-Here is the [link](./docs/benchmarks/NON_EAGER_BENCHMARK.md) for details
+[See details here](./docs/benchmarks/NON_EAGER_BENCHMARK.md)
 
 ##### Pros:
 
@@ -48,11 +48,11 @@ part of the configuration in three **webpack.config.js** file with:
 shared: getSharedPackages(true)
 ```
 
-Here is the [link](./docs/benchmarks/EAGER_BENCHMARK.md) for details
+[See details here](./docs/benchmarks/EAGER_BENCHMARK.md)
 
 ### Pros:
 
-- Less number of asset requests
+- Reduced number of asset requests
 
 ### Cons:
 
@@ -68,7 +68,7 @@ To perform this comparison, add the line below to **shared-mappings.js** in all 
 rxjs: { eager, singleton: true, strictVersion: false, requiredVersion: 'auto', includeSecondaries: true }
 ```
 
-Here is the [link](./docs/benchmarks/NON_EAGER_RXJS_SHARED_BENCHMARK.md) for details
+[See details here](./docs/benchmarks/NON_EAGER_RXJS_SHARED_BENCHMARK.md)
 
 ##### Pros:
 
@@ -88,7 +88,7 @@ To perform this comparison, add the line below to **shared-mappings.js** in all 
 moment: { eager, singleton: true, strictVersion: false, requiredVersion: 'auto', includeSecondaries: true }
 ```
 
-Here is the [link](./docs/benchmarks/NON_EAGER_MOMENT_SHARED_BENCHMARK.md) for details
+[See details here](./docs/benchmarks/NON_EAGER_MOMENT_SHARED_BENCHMARK.md)
 
 ##### Pros:
 
@@ -99,3 +99,11 @@ Here is the [link](./docs/benchmarks/NON_EAGER_MOMENT_SHARED_BENCHMARK.md) for d
 ##### Cons:
 
 - one extra request for separate bundle
+
+
+### Some conclusions
+
+- it's **not a good idea** to set **eager: true** in both host and remote applications, since it ends up a lot of duplications in main and polyfills bundle, and still there are [open questions](https://github.com/module-federation/module-federation-examples/issues/693) regarding that.
+- it's **not a good idea** to share many packages, except for core framework code like **core**, **router**, **common**, etc since shared packages are not [tree-shaken](https://github.com/webpack/webpack/discussions/13382)
+- it's **not a good idea** to use **non tree shakable packages** in any applications, since the complete package will be shipped with the bundle.
+  However, if that's the case, and both host and remotes consume this package, it is **a good idea** to add this package to shared mappings in both host and remote applications. Since shared packages won't be tree-shaken, this fits into the case for those packages.
