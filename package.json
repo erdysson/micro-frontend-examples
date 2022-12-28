@@ -1,0 +1,19 @@
+{
+    "name": "micro-frontend-examples",
+    "version": "1.0.0",
+    "description": "This repository contains examples of micro frontends with different variations",
+    "main": ".eslintrc.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/erdysson/micro-frontend-examples.git"
+    },
+    "author": "Erdi Taner Gokalp",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/erdysson/micro-frontend-examples/issues"
+    },
+    "homepage": "https://github.com/erdysson/micro-frontend-examples#readme"
+}
