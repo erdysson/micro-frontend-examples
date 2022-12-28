@@ -204,7 +204,6 @@ module.exports = {
                             'abstract-field',
                             'public-abstract-field',
                             'protected-abstract-field',
-                            'private-abstract-field',
 
                             'instance-field',
                             'public-field',
