@@ -18,7 +18,7 @@ export const appRoutes: Routes = [
         component: WebComponentWrapper,
         data: {
             type: 'module', // required for ng 13+
-            remoteEntry: '/micro-frontend/angular-v15/remoteEntry.js',
+            remoteEntry: remoteEntryConfig.remoteEntry,
             exposedModule: remoteEntryConfig.exposedModule,
             elementName: `${remoteEntryConfig.remoteName}-element`,
         } as WebComponentWrapperOptions,

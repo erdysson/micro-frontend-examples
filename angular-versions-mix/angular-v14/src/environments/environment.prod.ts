@@ -5,7 +5,7 @@ export const environment: Environment = {
     remoteEntries: [
         {
             routePath: 'angular-v15',
-            remoteEntry: '/micro-frontend/home/remoteEntry.js',
+            remoteEntry: '/micro-frontend/angular-v15/remoteEntry.js',
             remoteName: 'angular-v15',
             exposedModule: './Component',
         },
