@@ -9,7 +9,7 @@ Install dependencies by running
 npm install
 ```
 
-under angular-v12 directory of this repository 
+under angular-v12 directory of this repository
 
 ### Start
 
