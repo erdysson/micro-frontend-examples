@@ -1,3 +1,5 @@
-echo "creating angular project with version $1 under $2"
+echo "creating angular project with under $1 directory with version $2 and name $3"
 
-npx -p @angular/cli@"$1" ng new "$2"
+cd "$1"
+
+npx -p @angular/cli@"$2" ng new "$3"
