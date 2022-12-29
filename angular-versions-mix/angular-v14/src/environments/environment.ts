@@ -2,8 +2,18 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-export const environment = {
+import { Environment } from '../app/app.model';
+
+export const environment: Environment = {
     production: false,
+    remoteEntries: [
+        {
+            routePath: 'angular-v15',
+            remoteEntry: '/micro-frontend/home/remoteEntry.js',
+            remoteName: 'angular-v15',
+            exposedModule: './Component',
+        },
+    ],
 };
 
 /*
