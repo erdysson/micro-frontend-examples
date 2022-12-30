@@ -1,8 +1,8 @@
 import { loadRemoteModule } from '@angular-architects/module-federation';
-import { startsWith } from '@angular-architects/module-federation-tools';
 import { Routes } from '@angular/router';
 
 import { environment } from '../environments/environment';
+import { remoteUrlStartsWith } from '../module-federation/remote-module.url-matcher';
 import { RemoteModuleWrapperComponent } from '../module-federation/remote-module.wrapper.component';
 
 import { RemoteEntry } from './app.model';
@@ -15,7 +15,7 @@ export const appRoutes: Routes = [
     ...environment.remoteEntries.map((remoteEntryConfig: RemoteEntry) =>
         remoteEntryConfig.type === 'module'
             ? {
-                  matcher: startsWith(remoteEntryConfig.routePath),
+                  matcher: remoteUrlStartsWith(remoteEntryConfig.routePath),
                   component: RemoteModuleWrapperComponent,
                   data: {
                       remoteEntryConfig,

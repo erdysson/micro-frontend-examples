@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { RemoteEntry } from '../app/app.model';
 
-import { loadRemoteModule } from './load-remote-module';
+import { remoteModuleLoader } from './remote-module.loader';
 
 @Component({
     template: '<div #remoteModuleContainer></div>',
@@ -18,9 +18,9 @@ export class RemoteModuleWrapperComponent implements AfterContentInit {
         const remoteEntryConfig: RemoteEntry = this.route.snapshot.data.remoteEntryConfig;
         const elementName = `${remoteEntryConfig.remoteName}-element`;
 
-        await loadRemoteModule(remoteEntryConfig);
+        await remoteModuleLoader(remoteEntryConfig);
 
-        const element = document.createElement(elementName as string);
+        const element = document.createElement(elementName);
         this.customElementWrapperRef.nativeElement.append(element);
     }
 }
