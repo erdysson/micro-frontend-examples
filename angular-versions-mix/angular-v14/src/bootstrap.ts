@@ -1,4 +1,3 @@
-// eslint-disable-next-line unicorn/prefer-top-level-await,no-console,import/unambiguous
 import { bootstrap } from '@angular-architects/module-federation-tools';
 
 import { AppModule } from './app/app.module';
