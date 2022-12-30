@@ -21,11 +21,11 @@ export class AppComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         // eslint-disable-next-line no-console
-        // console.log('moment', moment);
+        console.log('moment', moment);
         // eslint-disable-next-line no-console
-        // console.log('sortBy', sortBy);
+        console.log('sortBy', sortBy);
         // eslint-disable-next-line no-console
-        // this.router.events.pipe(takeUntil(this.destroyed$)).subscribe(console.log);
+        this.router.events.pipe(takeUntil(this.destroyed$)).subscribe(console.log);
     }
 
     ngOnDestroy(): void {
