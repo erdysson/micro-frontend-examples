@@ -3,9 +3,9 @@ import { startsWith } from '@angular-architects/module-federation-tools';
 import { Routes } from '@angular/router';
 
 import { environment } from '../environments/environment';
+import { RemoteModuleWrapperComponent } from '../module-federation/remote-module.wrapper.component';
 
 import { RemoteEntry } from './app.model';
-import { CustomElementWrapperComponent } from './custom-element-wrapper.component';
 
 export const appRoutes: Routes = [
     {
@@ -13,13 +13,12 @@ export const appRoutes: Routes = [
         loadChildren: async () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
     },
     ...environment.remoteEntries.map((remoteEntryConfig: RemoteEntry) =>
-        remoteEntryConfig.hasMajorVersionDifference
+        remoteEntryConfig.type === 'module'
             ? {
                   matcher: startsWith(remoteEntryConfig.routePath),
-                  component: CustomElementWrapperComponent,
+                  component: RemoteModuleWrapperComponent,
                   data: {
-                      remoteName: remoteEntryConfig.remoteName,
-                      elementName: `${remoteEntryConfig.remoteName}-element`,
+                      remoteEntryConfig,
                   },
               }
             : {

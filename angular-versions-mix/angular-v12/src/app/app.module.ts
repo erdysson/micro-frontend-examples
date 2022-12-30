@@ -3,13 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
 import { environment } from '../environments/environment';
+import { RemoteModuleWrapperComponent } from '../module-federation/remote-module.wrapper.component';
 
 import { appRoutes } from './app-routes';
 import { AppComponent } from './app.component';
-import { CustomElementWrapperComponent } from './custom-element-wrapper.component';
 
 @NgModule({
-    declarations: [AppComponent, CustomElementWrapperComponent],
+    declarations: [AppComponent, RemoteModuleWrapperComponent],
     imports: [BrowserModule, RouterModule.forRoot(appRoutes)],
     providers: [
         {

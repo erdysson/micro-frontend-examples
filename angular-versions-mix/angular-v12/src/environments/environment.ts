@@ -12,13 +12,14 @@ export const environment: Environment = {
             remoteEntry: '/micro-frontend/users/remoteEntry.js',
             remoteName: 'users',
             exposedModule: 'UsersModule',
+            type: 'script',
         },
         {
             routePath: 'angular-v15',
             remoteEntry: '/micro-frontend/angular-v15/remoteEntry.js',
             remoteName: 'angular-v15',
             exposedModule: './Component',
-            hasMajorVersionDifference: true,
+            type: 'module',
         },
     ],
 };
