@@ -1,0 +1,20 @@
+{
+    "/micro-frontend/users/*": {
+        "target": "http://localhost:4231",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "error",
+        "pathRewrite": {
+            "^/micro-frontend/users": ""
+        }
+    },
+    "/micro-frontend/angular-v15/*": {
+        "target": "http://localhost:4221",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "error",
+        "pathRewrite": {
+            "^/micro-frontend/angular-v15": ""
+        }
+    }
+}

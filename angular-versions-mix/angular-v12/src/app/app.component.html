@@ -1,0 +1,8 @@
+<nav>
+    <ul class="nav-list">
+        <li class="nav-item"><a routerLink="/dashboard">Dashboard</a></li>
+        <li class="nav-item" *ngFor="let microFrontend of environment.remoteEntries"><a
+                [routerLink]="microFrontend.routePath">{{ microFrontend.remoteName }}</a></li>
+    </ul>
+</nav>
+<router-outlet></router-outlet>

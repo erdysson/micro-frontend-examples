@@ -1,0 +1,14 @@
+<div class="container">
+    <h2>Users (Micro frontend)</h2>
+    <p>This home component is being remotely loaded into the application using Module Federation, angular is shared so
+        the download is minimal for the frontend</p>
+
+    <div [formGroup]="form">
+        <div>
+            <input type="text" formControlName="name" placeholder="Write sth here">
+        </div>
+        <div>
+            <button [disabled]="form.invalid">Submit me</button>
+        </div>
+    </div>
+</div>
