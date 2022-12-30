@@ -6,10 +6,11 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AppRouteComponent } from './app.route.component';
 import { appRoutes } from './app.routes';
+import { RemoteModuleRouterExtensionModule } from './module-federation/remote-module.router-extension.module';
 
 @NgModule({
     declarations: [AppComponent, AppRouteComponent],
-    imports: [BrowserModule, RouterModule.forRoot(appRoutes)],
+    imports: [BrowserModule, RouterModule.forRoot(appRoutes), RemoteModuleRouterExtensionModule],
     bootstrap: [], // no bootstrap component
 })
 export class AppModule implements DoBootstrap {
